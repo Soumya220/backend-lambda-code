@@ -1,0 +1,1 @@
+2023-07-21 20:32:38,505 - custodian.policy - INFO - policy:filter-unencrypted-s3-buckets resource:s3 region:us-east-1 count:0 time:18.07

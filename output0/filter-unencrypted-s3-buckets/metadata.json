@@ -1,0 +1,96 @@
+{
+  "policy": {
+    "name": "filter-unencrypted-s3-buckets",
+    "description": "Filters out S3 buckets that are not encrypted.\n",
+    "resource": "s3",
+    "region": "us-east-1",
+    "filters": [
+      {
+        "type": "bucket-encryption",
+        "state": false
+      }
+    ],
+    "actions": [
+      {
+        "type": "notify",
+        "to": [
+          "soumya.de@nagarro.com"
+        ],
+        "subject": "ACTION REQUIRED | You have Unencrypted S3 Bucket",
+        "template": "finops_s3.html",
+        "transport": {
+          "type": "sqs",
+          "queue": "https://sqs.us-east-1.amazonaws.com/200024982256/MyQueue"
+        }
+      }
+    ]
+  },
+  "version": "0.9.29",
+  "execution": {
+    "id": "73cbf98a-f0b7-443c-ad16-d8325eca22fb",
+    "start": 1689951740.4092572,
+    "end_time": 1689951758.506788,
+    "duration": 18.097530841827393
+  },
+  "config": {
+    "region": "us-east-1",
+    "regions": [
+      "us-east-1"
+    ],
+    "cache": "~/.cache/cloud-custodian.cache",
+    "profile": null,
+    "account_id": "200024982256",
+    "assume_role": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "output0",
+    "cache_period": 0,
+    "dryrun": false,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "/home/soumya/tmp/repo/custodian-policy-1689951736/S3/s3_unencrypted_bucket.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {
+    "s3.ListBuckets": 1,
+    "s3.GetBucketLocation": 8,
+    "s3.GetBucketTagging": 8,
+    "s3.GetBucketPolicy": 8,
+    "s3.GetBucketAcl": 8,
+    "s3.GetBucketReplication": 8,
+    "s3.GetBucketVersioning": 8,
+    "s3.GetBucketWebsite": 8,
+    "s3.GetBucketLogging": 8,
+    "s3.GetBucketNotificationConfiguration": 8,
+    "s3.GetBucketLifecycleConfiguration": 8,
+    "s3.GetBucketEncryption": 8
+  },
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2023-07-21T20:32:38.505731",
+      "Value": 0,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2023-07-21T20:32:38.505773",
+      "Value": 18.07351565361023,
+      "Unit": "Seconds"
+    }
+  ]
+}

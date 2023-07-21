@@ -1,0 +1,3 @@
+2023-07-21 20:38:27,808 - custodian.policy - INFO - policy:notify-running-instances resource:aws.ec2 region:us-east-1 count:1 time:2.43
+2023-07-21 20:38:30,678 - custodian.actions - INFO - sent message:dd99a6c5-c3f3-432a-9cd3-1d5e6571da99 policy:notify-running-instances template:finops_ec2.html count:1
+2023-07-21 20:38:30,679 - custodian.policy - INFO - policy:notify-running-instances action:notify resources:1 execution_time:2.86
